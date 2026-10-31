@@ -5,6 +5,6 @@ COPY src ./src
 RUN cargo build --release --locked
 
 FROM gcr.io/distroless/cc-debian12:nonroot
-COPY /app/target/release/calendly-booking /server
+COPY --from=build /app/target/release/calendly-booking /server
 ENV PORT=8080
 ENTRYPOINT ["/server"]
