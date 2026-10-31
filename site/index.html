@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZH Booking | Open-Source Scheduling</title>
+<meta name="description" content="ZH Booking is a free, open-source, self-hosted scheduling tool with an interactive clock picker, Google Calendar and Google Meet.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="./"><img src="logo.svg" alt="ZH Booking" height="42"></a>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#how">How it works</a>
+    <a href="#compare">Compare</a>
+    <a href="https://zubairhussain.xyz">Portfolio</a>
+  </nav>
+  <div class="actions"><a href="login.html">Log in</a><a class="btn" href="https://calendly-booking-navy.vercel.app">Book a call</a></div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="panel">
+      <h1>Easy scheduling, on your own terms</h1>
+      <p>Share one page. Guests pick a date, set the time on a clock, and get a Google Meet invite.</p>
+      <a class="btn big" href="https://calendly-booking-navy.vercel.app">Try booking</a>
+      <a class="btn ghost big" href="https://github.com/Zubair-hussain/Calendly_Alternative">View on GitHub</a>
+      <img src="clock-demo.gif" alt="Choosing 10:30 on the clock" width="300" height="328">
+    </div>
+  </section>
+
+  <section id="features" class="wrap">
+    <h2>Everything a one-person calendar needs</h2>
+    <div class="grid">
+      <article><h3>Live availability</h3><p>Reads your Google Calendar, so busy times never appear.</p></article>
+      <article><h3>Interactive clock</h3><p>Guests pick the hour, then the minutes, on a real clock face.</p></article>
+      <article><h3>Automatic invites</h3><p>Every booking creates an event, a Meet link and an email.</p></article>
+      <article><h3>No double booking</h3><p>Each slot is checked again and can only be booked once.</p></article>
+      <article><h3>Your brand</h3><p>It's plain HTML, so you can change every colour and word.</p></article>
+      <article><h3>Open source</h3><p>MIT licensed and free to deploy on your own Vercel account.</p></article>
+    </div>
+  </section>
+
+  <section id="how" class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><b>Pick a date</b>Open weekdays are highlighted.</li>
+      <li><b>Set the clock</b>Choose an open hour and minute.</li>
+      <li><b>Add details</b>Name, email and optional notes.</li>
+      <li><b>Get the invite</b>The Meet link arrives by email.</li>
+    </ol>
+  </section>
+
+  <section id="compare" class="wrap">
+    <h2>How it compares</h2>
+    <div class="table"><table>
+      <tr><th></th><th>Hosted tools</th><th>ZH Booking</th></tr>
+      <tr><td>Hosting</td><td>Run by the provider</td><td>Your own account</td></tr>
+      <tr><td>Design</td><td>Provider's page</td><td>Your HTML and brand</td></tr>
+      <tr><td>Time picking</td><td>Time-slot list</td><td>Interactive clock</td></tr>
+      <tr><td>Teams, routing, payments</td><td>Available</td><td>Not included</td></tr>
+    </table></div>
+    <p class="note">Need team features? Try <a href="https://calendly.com">Calendly</a> or <a href="https://cal.com">Cal.com</a>.</p>
+  </section>
+</main>
+
+<footer>Built by <a href="https://zubairhussain.xyz">Zubair Hussain</a>. Independent project, not affiliated with Calendly.</footer>
+</body>
+</html>
