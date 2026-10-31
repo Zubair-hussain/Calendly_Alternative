@@ -68,6 +68,14 @@ def parse_time(value):
     return parsed.astimezone(timezone.utc)
 
 
+def parse_event_time(value, tz):
+    """All-day events carry `date` instead of `dateTime`."""
+    if "dateTime" in value:
+        return parse_time(value["dateTime"])
+    day = date.fromisoformat(value["date"])
+    return datetime.combine(day, time(0), tz).astimezone(timezone.utc)
+
+
 class GoogleError(Exception):
     def __init__(self, status):
         super().__init__(f"Google returned {status}")
@@ -78,6 +86,7 @@ class Google:
     def __init__(self, env=os.environ):
         self.env = env
         self.calendar_id = env.get("GOOGLE_CALENDAR_ID", "primary")
+        self.tz = Rules(env).tz
 
     def _request(self, url, data=None, headers=None):
         request = urllib.request.Request(url, data=data, headers=headers or {})
@@ -100,12 +109,17 @@ class Google:
         return {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
 
     def busy(self, start, end):
-        body = {"timeMin": iso(start), "timeMax": iso(end), "items": [{"id": self.calendar_id}]}
-        result = self._request(f"{CALENDAR_API}/freeBusy", json.dumps(body).encode(), self._headers())
-        calendar = result["calendars"][self.calendar_id]
-        if calendar.get("errors"):
-            raise GoogleError(502)
-        return [(parse_time(b["start"]), parse_time(b["end"])) for b in calendar.get("busy", [])]
+        # Listing events works with the narrower calendar.events scope; freeBusy does not.
+        calendar = urllib.parse.quote(self.calendar_id, safe="")
+        query = urllib.parse.urlencode({
+            "timeMin": iso(start), "timeMax": iso(end), "singleEvents": "true", "maxResults": 250,
+        })
+        result = self._request(f"{CALENDAR_API}/calendars/{calendar}/events?{query}", None, self._headers())
+        return [
+            (parse_event_time(e["start"], self.tz), parse_event_time(e["end"], self.tz))
+            for e in result.get("items", [])
+            if e.get("status") != "cancelled" and e.get("transparency") != "transparent"
+        ]
 
     def book(self, start, minutes, name, email, notes):
         body = {
