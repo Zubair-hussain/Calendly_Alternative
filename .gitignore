@@ -1,0 +1,7 @@
+/target
+.env
+client_secret*.json
+.env.local
+.env.*
+!.env.example
+*_api.json
