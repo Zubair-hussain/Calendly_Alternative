@@ -73,6 +73,16 @@ class Availability(unittest.TestCase):
         self.assertEqual(b.free_slots(RULES, date(2027, 6, 1), [], NOW), [])
 
 
+class EventTimes(unittest.TestCase):
+    def test_all_day_event_blocks_the_day(self):
+        tz = RULES.tz
+        busy = [(b.parse_event_time({"date": "2026-11-02"}, tz), b.parse_event_time({"date": "2026-11-03"}, tz))]
+        self.assertEqual(b.free_slots(RULES, MONDAY, busy, NOW), [])
+
+    def test_timed_event(self):
+        self.assertEqual(b.parse_event_time({"dateTime": SLOT}, RULES.tz), utc(SLOT))
+
+
 class Breakable(unittest.TestCase):
     def test_books_valid_slot(self):
         status, body = post(FakeGoogle())
