@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="96" viewBox="0 0 360 96" role="img" aria-label="ZH Booking">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ef4444"/><stop offset="1" stop-color="#7f0a12"/></linearGradient></defs>
+<rect x="4" y="4" width="88" height="88" rx="24" fill="url(#g)"/>
+<circle cx="48" cy="48" r="28" fill="#fff"/>
+<line x1="48" y1="48" x2="48" y2="29" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+<line x1="48" y1="48" x2="62" y2="56" stroke="#c8111e" stroke-width="4" stroke-linecap="round"/>
+<circle cx="48" cy="48" r="4" fill="#c8111e"/>
+<text x="110" y="62" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="40" font-weight="700" fill="#c8111e">ZH Booking</text>
+</svg>
