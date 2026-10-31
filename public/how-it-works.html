@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How It Works | ZH Booking</title>
+<meta name="description" content="ZH Booking is a free, open-source, self-hosted Calendly alternative. See how guests book a meeting with the clock picker and how it connects to Google Calendar.">
+<style>
+:root{--accent:#c8111e;--text:#0f172a;--muted:#5b6475;--line:#e5e7eb}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+main{max-width:860px;margin:0 auto;padding:56px 20px}
+h1{font-size:clamp(34px,7vw,54px);line-height:1.1;margin:0 0 14px}
+h1 span{color:var(--accent)}
+h2{font-size:26px;margin:52px 0 16px}
+p{color:var(--muted)}
+.btn{display:inline-block;margin:10px 10px 0 0;padding:12px 22px;border-radius:24px;font-weight:700;text-decoration:none;border:1px solid var(--accent);color:var(--accent)}
+.btn.main{background:var(--accent);color:#fff}
+.demo{display:block;max-width:320px;width:100%;margin:28px auto 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;padding:0;list-style:none;counter-reset:s}
+.steps li{border:1px solid var(--line);border-radius:14px;padding:18px;counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;margin-bottom:8px}
+.steps b{display:block}
+.steps span{color:var(--muted);font-size:14px}
+.table{overflow-x:auto}
+table{width:100%;min-width:480px;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line)}
+footer{margin-top:52px;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Book meetings with a <span>clock</span>, on your own terms.</h1>
+  <p>ZH Booking is a free, open-source, self-hosted alternative to Calendly. It connects to your Google Calendar and runs on your own Vercel account.</p>
+  <a class="btn main" href="/">Try booking</a>
+  <a class="btn" href="https://github.com/Zubair-hussain/Calendly_Alternative">View on GitHub</a>
+  <img class="demo" src="https://raw.githubusercontent.com/Zubair-hussain/Calendly_Alternative/_prod/assets/clock-demo.gif" alt="Choosing a time on the clock" width="320" height="350">
+
+  <h2>How a guest books</h2>
+  <ol class="steps">
+    <li><b>Pick a date</b><span>Available weekdays are highlighted.</span></li>
+    <li><b>Set the clock</b><span>Choose an open hour, then the minutes.</span></li>
+    <li><b>Add details</b><span>Enter a name, email and optional notes.</span></li>
+    <li><b>Get the invite</b><span>A calendar invitation with a Google Meet link arrives by email.</span></li>
+  </ol>
+
+  <h2>What happens behind the page</h2>
+  <ol class="steps">
+    <li><b>Reads your calendar</b><span>Busy times are removed from the clock.</span></li>
+    <li><b>Checks again</b><span>The server re-checks the slot before booking.</span></li>
+    <li><b>Blocks duplicates</b><span>Each slot has one event ID, so a second booking is rejected.</span></li>
+    <li><b>Creates the meeting</b><span>Google adds the event and Meet link and emails the guest.</span></li>
+  </ol>
+
+  <h2>Compared with Calendly</h2>
+  <div class="table"><table>
+    <tr><th></th><th>Calendly</th><th>ZH Booking</th></tr>
+    <tr><td>Hosting</td><td>Run by Calendly</td><td>Your own Vercel account</td></tr>
+    <tr><td>Design</td><td>Calendly's page</td><td>Your HTML and brand</td></tr>
+    <tr><td>Time picking</td><td>Time-slot list</td><td>Interactive clock</td></tr>
+    <tr><td>Meet links and invites</td><td>Yes</td><td>Yes</td></tr>
+    <tr><td>Teams, routing, payments</td><td>Available</td><td>Not included</td></tr>
+    <tr><td>Source code</td><td>Closed</td><td>Open, MIT licensed</td></tr>
+  </table></div>
+
+  <h2>Run your own</h2>
+  <p>Fork the repository, create Google OAuth credentials, add them as Vercel environment variables, and deploy the <code>_prod</code> branch. The README has the details.</p>
+
+  <footer>Independent project by Zubair Hussain. Not affiliated with or endorsed by Calendly.</footer>
+</main>
+</body>
+</html>
