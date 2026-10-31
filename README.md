@@ -39,7 +39,7 @@ The same core booking flow, on your own infrastructure and Google account.
 - **Rate limit:** 5 booking attempts per IP per hour
 - **Circuit breaker:** fails fast during Google outages, then recovers
 - **Keep Alive:** pings `/healthz` about every 20 minutes
-- **Security automation:** cargo audit, gitleaks, Dependabot, Claude audit
+- **Security automation:** cargo audit, gitleaks, Dependabot
 
 ## System architecture
 
