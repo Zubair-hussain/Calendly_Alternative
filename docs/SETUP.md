@@ -69,7 +69,7 @@ Put the printed URL in Cloudflare as `NEXT_PUBLIC_BOOKING_API_URL`, add that URL
 
 ## 4. GitHub
 
-Add the `ANTHROPIC_API_KEY` and `HEALTHCHECK_URL` repository secrets. Then CI, dependency audit, secret scanning, Dependabot and the Claude audit run automatically.
+Add the `HEALTHCHECK_URL` repository secret. Then CI, dependency audit, secret scanning and Dependabot run automatically.
 
 ## Keep it alive
 
