@@ -10,3 +10,4 @@ Cargo.lock
 Dockerfile
 .env*
 *_api.json
+site
