@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Check health
         env:
-          URL: ${{ secrets.HEALTHCHECK_URL }}
+          URL: ${{ vars.HEALTHCHECK_URL || 'https://calendly-booking-navy.vercel.app/api?health=1' }}
         run: curl --fail --silent --show-error --retry 3 --retry-delay 20 --max-time 90 "$URL"
